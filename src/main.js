@@ -1,6 +1,10 @@
 import { createDialog } from "./dialog";
 
 (() => {
+    const hosts = ["bloxd.io", "staging.bloxd.io"];
+    if (!hosts.includes(location.host)) {
+        alert("Use this with opening bloxd.io");
+    }
     const nameElements = document.querySelectorAll("#root > div.WholeAppWrapper > div > div.EverythingMenuContainer > div > div > div.EverythingMenuBody > div.SettingsMenu.Menu > div.MenuBody.SettingsMenuRight > div > div.SettingBox.SetAccountNameDiv.SmallTextLight > div.EnterAccNameDivWrapper > input");
 
     if (nameElements.length !== 1) {
