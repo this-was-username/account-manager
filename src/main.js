@@ -54,13 +54,13 @@ import { createDialog } from "./dialog";
             if (id === "add") {
                 // Clear it
                 document.cookie = "___Secure-3PSIDMC=; max-age=0; path=/; secure"
-                return;
+            } else {
+                document.cookie = "___Secure-3PSIDMC="
+                    + encodeURIComponent(id)
+                    + "; max-age="
+                    + (400 * 24 * 60 * 60)
+                    + "; path=/; secure";
             }
-            document.cookie = "___Secure-3PSIDMC="
-                + encodeURIComponent(id)
-                + "; max-age="
-                + (400 * 24 * 60 * 60)
-                + "; path=/; secure";
 
             // Disable the browser's confirm dialog and reload
             window.onbeforeunload = null;
